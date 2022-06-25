@@ -10,7 +10,7 @@ from userge import userge, Message, config
 from userge.utils import take_screen_shot
 
 
-@userge.on_cmd("protecc", about={
+@userge.on_cmd("h", about={
     'header': "Protecc waifu",
     'description': "Reverse Search waifu and protecc it",
     'usage': "{tr}protecc [Reply to waifu bot]"})
