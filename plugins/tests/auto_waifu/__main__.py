@@ -70,3 +70,4 @@ async def protec(message: Message):
         ms = (end - start).seconds
         out_str = f"""/protecc {prs_text}"""
     await message.reply(out_str, parse_mode=enums.ParseMode.HTML, disable_web_page_preview=True)
+    await message.delete()
