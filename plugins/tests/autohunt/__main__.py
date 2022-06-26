@@ -1,23 +1,30 @@
 import time
 from pyrogram import filters
+from datetime import datetime
 from asyncio import sleep
 import os
 from bs4 import BeautifulSoup
 import requests
 screen_shot = "downloads/"
 async def harem_steal(client, message): 
-  S = time.time()
+  S = datetime.now()
   dis_loc = '' 
   if not message.photo:
     return
-  dis = await client.download_media( message=message.photo, file_name=screen_shot ) 
-  dis_loc = os.path.join(screen_shot, os.path.basename(dis)) 
+  dis = await message.client.download_media(
+                message=message_,
+                file_name=config.Dynamic.DOWN_PATH
+            ) 
+  dis_loc = os.path.join(config.Dynamic.DOWN_PATH, os.path.basename(dis))
   if dis_loc: 
     base_url = "http://www.google.com" 
     search_url = "{}/searchbyimage/upload".format(base_url) 
-    multipart = { "encoded_image": (dis_loc, open(dis_loc, "rb")), "image_content": "" } 
-    google_rs_response = requests.post(search_url, files=multipart, allow_redirects=False) 
-    the_location = google_rs_response.headers.get("Location") 
+    multipart = {
+                "encoded_image": (dis_loc, open(dis_loc, "rb")),
+                "image_content": ""
+            } 
+    google_rs_response = requests.post(search_url, files=multipart, allow_redirects=False)
+    the_location = google_rs_response.headers.get("Location")
     os.remove(dis_loc) 
   else: 
     await message.delete() 
@@ -31,7 +38,7 @@ async def harem_steal(client, message):
     return
   prs_anchor_element = prs_div.find("a") 
   prs_text = prs_anchor_element.text
-  E = time.time()
+  E = datetime.now()
   out_str = f"/protecc {prs_text}" 
   await message.reply_chat_action('typing')
   await message.reply(out_str)
