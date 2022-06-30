@@ -13,7 +13,7 @@ from userge.utils import take_screen_shot
 @userge.on_cmd("h", about={
     'header': "Protecc waifu",
     'description': "Reverse Search waifu and protecc it",
-    'usage': "{tr}protecc [Reply to waifu bot]"})
+    'usage': "{tr}h [Reply to waifu bot]"})
 async def protec(message: Message):
     start = datetime.now()
     dis_loc = ''
