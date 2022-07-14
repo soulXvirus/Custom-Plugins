@@ -80,7 +80,7 @@ async def protec(message: Message):
 async def protec(message: Message):
     start = datetime.now()
     dis_loc = ''
-    base_url = "http://www.google.com"
+    base_url = "https://www.google.com"
     out_str = "Reply to an image to do Google Reverse Search"
     if message.reply_to_message:
         await message.edit("Downloading Media to my Local")
